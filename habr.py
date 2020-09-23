@@ -15,7 +15,7 @@ def get_desired_article(page):
 
     for post in posts:
         read_more = post.find('a', class_='btn btn_x-large btn_outline_blue post__habracut-btn')
-        link_post = read_more.attrs.get('href').replace('', '')
+        link_post = read_more.attrs.get('href').replace('#habracut', '')
         new_page = get_page(link_post)
 
         post_text = new_page.find_all('div', class_='post__text post__text-html post__text_v1')
@@ -26,7 +26,7 @@ def get_desired_article(page):
             if KEYWORDS.intersection(text_lower):
                 post_time = post.find('span', class_='post__time')
                 title_element = post.find('a', class_='post__title_link')
-                print(f'{post_time.text} - {title_element.text} - {title_element.attrs.get("href")}')
+                print(f'{post_time.text} - {title_element.text} - {link_post}')
                 break
 
 
