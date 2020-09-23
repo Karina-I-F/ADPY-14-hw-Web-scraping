@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 KEYWORDS = {'дизайн', 'фото', 'web', 'python'}
 
 
-
 def get_page(url):
     ret = requests.get(url)
     page = BeautifulSoup(ret.text, 'html.parser')
